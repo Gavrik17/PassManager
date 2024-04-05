@@ -1,0 +1,30 @@
+.permitions {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0;
+}
+
+.picture{
+    width: 60px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.title {
+    font-size: 20px;
+}
+
+.about {
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--main-txt-color);
+    font-family: 'Public Sans', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-weight: 700;
+}
+
+.access span:hover {
+    cursor: pointer;
+    color: #4079e4;
+}

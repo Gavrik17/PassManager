@@ -1,0 +1,110 @@
+.select {
+    padding: 0 10px;
+}
+
+.info {
+    display: flex;
+}
+
+.credential {
+    height: 32px;
+    padding: 0 10px;
+}
+
+
+.name {
+    font-family: "Public Sans", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.comment {
+    font-size: 12px;
+}
+
+.picture {
+    display: flex;
+    justify-content: center;
+    height: 32px;
+    width: 50px;
+    align-items: center;
+    background-color: var(--blue);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    color: white;
+    font-family: "GT Walsheim Pro", sans-serif;
+    font-weight: 600;
+    line-height: 1.333;
+    user-select: none;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.dot {
+    width: 35px;
+    height: 35px;
+    background-image: radial-gradient(circle, black 3px, transparent 0px);
+    background-size: 33.33% 100%;
+    box-sizing:border-box
+}
+
+.dot:hover {
+    outline: 2px solid rgb(145, 141, 141);
+    background-color: white;
+    border-radius: 5px;
+}
+
+.item {
+    transition: 0.2s ease-out;
+}
+
+.item:hover {
+    background-color: #f2f0f8;
+    transition: 0.2s ease-in;
+}
+
+.ceil {
+    display: flex;
+}
+
+.ceil img {
+    width: 20px;
+    margin-left: 5px;
+    opacity: 0;
+    transition: 0.3s ease-out;
+}
+
+.ceil:hover img {
+    opacity: 1;
+    transition: 0.3s ease-in;
+}
+
+.link{
+    display: flex;
+    width: max-content;
+    outline: 2px solid rgb(145, 141, 141);
+    background-color: white;
+    border-radius: 3px;
+    opacity: 0;
+    transition: 0.2s ease-out;
+    padding: 10px;
+}
+
+.item:hover .link{
+    opacity: 1;
+    transition: 0.2s ease-in;
+}
+
+.link img{
+    width: 20px;
+    margin-left: 5px;
+    transition: 0.3s ease-out;
+}
+
+.password div{
+    -webkit-text-security: disc
+}

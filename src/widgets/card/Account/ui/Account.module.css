@@ -1,0 +1,49 @@
+.account {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  color: var(--main-txt-color);
+  padding: 0 10px;
+  width: 400px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.data {
+  font-size: 16px;
+  padding-top: 8px;
+}
+
+.block {
+  padding: 10px 0;
+}
+
+.colorBlocks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.colorBlock {
+  height: 32px;
+  width: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  color: white;
+  margin: 5px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.buttonsLeft{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 85px;
+}

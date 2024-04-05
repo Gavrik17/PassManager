@@ -1,0 +1,1 @@
+export { PassSecurity } from "./ui/PassSecurity"

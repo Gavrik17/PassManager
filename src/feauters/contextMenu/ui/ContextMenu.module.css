@@ -1,0 +1,17 @@
+.contextMenu {
+  position: absolute;
+  z-index: 100;
+  margin: 0;
+  background-color: var(--card-bg-color);
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.block {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.block:hover {
+  background-color: var(--block-hover-color);
+}

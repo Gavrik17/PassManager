@@ -1,0 +1,18 @@
+.store {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 20px 10px 20px 0;
+  color: black;
+}
+
+.title {
+  padding-left: 20px;
+}
+
+.add_folder {
+  font-size: 40px;
+  font-weight: 700;
+  width: 100%;
+  text-align: right;
+  padding: 10px 20px;
+}

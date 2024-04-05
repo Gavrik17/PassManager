@@ -1,0 +1,8 @@
+.select {
+    padding: 0 10px;
+}
+
+.header {
+    background-color: var(--theader-color);
+    height: 50px;
+}

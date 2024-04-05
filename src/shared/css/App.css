@@ -1,0 +1,70 @@
+/*Обнуление*/
+*{padding:0;margin:0;border:0;}
+*,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+:focus,:active{outline:none;}
+a:focus,a:active{outline:none;}
+nav,footer,header,aside{display:block;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display:none;}
+button{cursor:pointer;}
+button::-moz-focus-inner{padding:0;border:0;}
+a,a:visited{text-decoration:none;color:black;}
+a:hover{text-decoration:none;}
+ul li{list-style:none;}
+img{vertical-align:top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
+/*--------------------*/
+
+.app_wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    background-color: #3E363F;
+    font-family: 'Public Sans', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+}
+
+.content {
+    background-color: #F7F7F9;
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    /* box-shadow: 0 0 8px rgb(0, 0, 0); */
+}
+
+.content main{
+    padding: 20px;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    color: #615b57;
+    font-family: 'Public Sans', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    border-collapse: collapse;
+}
+
+th {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+tr {
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    padding-bottom: 8px;
+}
+
+td {
+    padding: 10px 0;
+}

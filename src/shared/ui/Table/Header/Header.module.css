@@ -1,0 +1,10 @@
+.select {
+    width: 5%;
+    padding: 0 5px;
+    
+}
+
+.header {
+    background-color: var(--theader-color);
+    height: 50px;
+}

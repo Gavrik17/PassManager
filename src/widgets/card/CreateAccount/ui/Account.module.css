@@ -1,0 +1,14 @@
+.input {
+  border-bottom: 1px solid black;
+  width: 200px;
+  right: 0;
+}
+
+.account {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  color: var(--main-txt-color);
+  padding: 0 10px;
+  width: 400px;
+}

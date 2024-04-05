@@ -1,0 +1,32 @@
+.search {
+    max-width: 250px;
+    width: 100%;
+    min-width: 150px;
+    padding: 3px 5px;
+    display: flex;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--dark-txt-color);
+    background-color: var(--card-bg-color);
+    background-clip: padding-box;
+    border-radius: 5px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    box-shadow: 0px 0px 5px 0px var(--shadow-color);
+}
+
+.search input {
+    padding: 5px 10px;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+
+}
+
+.search input::placeholder {
+    font-size: 1rem;
+}
+
+.search img {
+    width: 21px;
+}

@@ -1,0 +1,12 @@
+.profile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+
+.profile > div {
+    flex: 1 1 auto;
+    margin: 10px 10px;
+}

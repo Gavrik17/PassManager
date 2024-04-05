@@ -1,0 +1,17 @@
+:root{
+  --card-bg-color: #ffffff;
+  --shadow-color: #223c5099;
+  --main-txt-color: #615b57;
+  --light-txt-color: #ffffff;
+  --dark-txt-color: #212529;
+  --block-hover-color: #f2f0f8;
+  --border-color: #dfdfdf;
+  --theader-color: #F9F8FD;
+
+  /* colors */
+  --green: #25db3d;
+  --orange: #FF8029;
+  --red: #D9393B;
+  --grey: #676c70;
+  --blue: #2a47e6;
+}

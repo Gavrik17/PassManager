@@ -1,0 +1,13 @@
+.select {
+    width: 5%;
+    padding: 0 5px;
+}
+
+.row {
+    transition: 0.2s ease-out;
+}
+
+.row:hover {
+    background-color: var(--block-hover-color);
+    transition: 0.2s ease-in;
+}

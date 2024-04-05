@@ -1,0 +1,10 @@
+.path {
+    color: #615b57a2;
+    font-family: 'Public Sans', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.path span {
+    color: #615b57;
+}

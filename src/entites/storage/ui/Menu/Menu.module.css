@@ -1,0 +1,62 @@
+.name {
+  display: flex;
+  justify-content: left;
+  transition: 0.2s ease-out;
+}
+
+.actions {
+  margin-left: auto;
+  margin-right: 10px;
+  opacity: 0;
+  transition: 0.2s ease-out;
+}
+
+.actions img {
+  width: 20px;
+}
+
+.name:hover .actions {
+  opacity: 1;
+  transition: 0.2s ease-in;
+}
+
+.line {
+  padding: 10px 0px 0px 15px;
+}
+
+.line a,
+.lime:visited {
+  color: #615b57;
+}
+
+.name {
+  padding: 5px;
+}
+
+.name:hover {
+  background-color: var(--block-hover-color);
+  border-radius: 5px;
+  transition: 0.2s ease-in;
+}
+
+.folder .line {
+  border-left: 1px solid var(--border-color);
+}
+
+.folder > .name::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url("shared/assets/icons/folder.svg");
+  background-size: 20px 20px;
+  margin-right: 3px;
+}
+
+.folder .line {
+  display: none;
+}
+
+.open > .line {
+  display: block;
+}

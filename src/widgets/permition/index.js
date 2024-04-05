@@ -1,0 +1,1 @@
+export { Permition } from "./ui/Permition"
