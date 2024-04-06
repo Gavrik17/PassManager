@@ -38,15 +38,3 @@
   margin-top: 20px;
   float: right;
 }
-
-.block {
-  display: flex;
-  flex-direction: column;
-}
-
-.error {
-  font-size: 12px;
-  padding: 5px 0;
-  color: var(--red);
-  font-weight: 600;
-}

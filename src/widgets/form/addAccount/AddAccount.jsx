@@ -3,6 +3,7 @@ import { Box } from "shared/ui";
 import style from "./AddAccount.module.css";
 import { useDispatch } from "react-redux";
 import { createAccount } from "entites/accounts";
+import { Field } from "shared/ui";
 
 // @ts-ignore
 const ColorBlocks = () => {
@@ -33,37 +34,8 @@ const ColorBlocks = () => {
 	);
 };
 
-const Field = ({
-	title,
-	name,
-	handleChange,
-	type = "text",
-	disabled = false,
-	formData,
-	error = "",
-}) => {
-	return (
-		<label htmlFor={name}>
-			<span>{title}</span>
-			<div className={style.block}>
-				<input
-					value={formData[name]}
-					type={type}
-					id={name}
-					name={name}
-					onChange={handleChange}
-					disabled={disabled}
-				/>
-				<span className={style.error}>{error}</span>
-			</div>
-		</label>
-	);
-};
-
 export const AddAccount = () => {
-	let dispatch = useDispatch();
-
-	const [errors, setErrors] = useState({
+	let initData = {
 		title: "",
 		description: "",
 		login: "",
@@ -71,17 +43,11 @@ export const AddAccount = () => {
 		link: "",
 		dateCreate: "",
 		dateChange: "",
-	});
+	};
 
-	const [formData, setFormData] = useState({
-		title: "",
-		description: "",
-		login: "",
-		password: "",
-		link: "",
-		dateCreate: "",
-		dateChange: "",
-	});
+	const [errors, setErrors] = useState(initData);
+	const [formData, setFormData] = useState(initData);
+	const dispatch = useDispatch();
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
@@ -92,29 +58,27 @@ export const AddAccount = () => {
 		event.preventDefault();
 		const newErrors = validateForm(formData);
 		setErrors(newErrors);
-		console.log(newErrors)
+
 		if (Object.keys(newErrors).length === 0) {
 			dispatch(createAccount(formData));
 		}
-    
-		
 	};
 
 	const validateForm = (data) => {
-		let errors = {}
-		if (!data.title.trim()){
-			errors.title = "Введите название"
+		let errors = {};
+		if (!data.title.trim()) {
+			errors.title = "Введите название";
 		}
 
-		if (!data.login.trim()){
-			errors.login = "Поле Логин не может быть пустым"
+		if (!data.login.trim()) {
+			errors.login = "Поле Логин не может быть пустым";
 		}
 
-		if (!data.password.trim()){
-			errors.password = "Поле Пароль не может быть пустым"
+		if (!data.password.trim()) {
+			errors.password = "Поле Пароль не может быть пустым";
 		}
-		
-		return errors
+
+		return errors;
 	};
 
 	return (
@@ -156,22 +120,6 @@ export const AddAccount = () => {
 					formData={formData}
 					error={errors.link}
 				/>
-				{/* <Field
-					title="Дата создания"
-					name="dateCreate"
-					handleChange={handleChange}
-					type="date"
-					formData={formData}
-					error={errors.dateCreate}
-				/>
-				<Field
-					title="Дата изменения"
-					name="dateChange"
-					handleChange={handleChange}
-					type="date"
-					formData={formData}
-					error={errors.dateChange}
-				/> */}
 				<button type="submit" className={style.submit}>
 					Добавить
 				</button>
