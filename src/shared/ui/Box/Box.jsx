@@ -14,19 +14,16 @@ export const Box = ({
 			<div className={style.header}>
 				<div className={style.leftblock}>
 					<div className={style.title}>{title}</div>
-					{extension && <div className={style.extension}>{extension}</div>}
+					{extension ? <div className={style.extension}>{extension}</div> : ""}
 				</div>
-				{action && <div className={style.action}>{action}</div>}
+				<div className={style.action}>{action}</div>
 			</div>
 
 			<div className={style.body}>{children}</div>
-			{(counts ||
-				pagination) && (
-					<div className={style.footer}>
-						<div className={style.counts}>{counts}</div>
-						<div className={style.pagination}>{pagination}</div>
-					</div>
-				)}
+			<div className={style.footer}>
+				<div className={style.counts}>{counts}</div>
+				<div className={style.pagination}>{pagination}</div>
+			</div>
 		</div>
 	);
 };
