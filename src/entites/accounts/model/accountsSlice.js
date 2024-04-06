@@ -97,13 +97,14 @@ const accountSlice = createSlice({
 	},
 	reducers: {
 		createAccount(state, action) {
+			let date = Date()
 			state.accounts.push({
-				id: 1,
-				name: "goroto.com",
-				description: "Social",
-				login: "Fufuk",
-				password: "sdfsdfsdfsdf",
-				lastused: "1 час назад",
+				id: 1000,
+				name: action.payload.title,
+				description: action.payload.description,
+				login: action.payload.login,
+				password: action.payload.password,
+				lastused: date,
 			})
 		},
 	},
