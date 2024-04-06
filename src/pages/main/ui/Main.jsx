@@ -5,19 +5,20 @@ import { Accounts } from "entites/accounts";
 import { Permition } from "widgets/permition";
 import { Pagination } from "feauters/pagination";
 import { Search } from "feauters/search";
-import { useDispatch } from "react-redux";
-import { createAccount } from "entites/accounts"
+import { Modal, useModal } from "feauters/modal";
+import { AddAccount } from "widgets/form";
 
 let Action = () => {
-
-	let dispatch = useDispatch()
-	let createAcc = () => dispatch(createAccount())
+	let account = useModal();
 
 	return (
 		<>
 			<Search />
-			<Add onClick={() => createAcc()}/>
+			<Add  onClick={account.openModal}/>
 			<Del />
+			<Modal showModal={account.showModal} closeModal={account.closeModal}>
+				<AddAccount />
+			</Modal>
 		</>
 	);
 };

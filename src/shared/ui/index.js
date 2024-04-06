@@ -7,4 +7,4 @@ export { Select } from "./Select/Select";
 export { Add } from "./Buttons/add/Add";
 export { Del } from "./Buttons/del/Del";
 export { Save } from "./Buttons/save/Save"
-export { Input } from "./Input/Input"
+export { Field } from "./Field/Field"

@@ -1,0 +1,40 @@
+.form label {
+	display:flex;
+	margin-left: 15px;
+  font-family: inherit;
+	font-size: 18px;
+  padding-top: 10px;
+  height: 40px;
+}
+
+.form label > span{
+	display: inline-block;
+	width: 150px;
+}
+.form input{
+	border: none;
+	border-bottom: 1px solid var(--border-color);
+	width: 275px;
+	outline: none;
+	padding: 0px 0px 0px 0px;
+	font-style: inherit;
+  font-size: 16px;
+  transition: 0.4s;
+  
+}
+
+
+.form input:focus{
+	border-bottom: 1px solid var(--blue);
+  transition: 0.4s;
+}
+
+.submit {
+  background-color: var(--blue);
+  color: var(--light-txt-color);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 20px;
+  float: right;
+}
