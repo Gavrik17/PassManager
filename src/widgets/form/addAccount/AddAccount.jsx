@@ -5,8 +5,7 @@ import { useDispatch } from "react-redux";
 import { createAccount } from "entites/accounts";
 import { Field } from "shared/ui";
 
-// @ts-ignore
-const ColorBlocks = () => {
+const ColorBlocks = ({ handleChange }) => {
 	let colors = [
 		"#FFFF00",
 		"#FF9900",
@@ -20,15 +19,25 @@ const ColorBlocks = () => {
 		"#33FF66",
 		"#33FF00",
 		"#CCFF33",
+		"#334455",
 	];
 
 	return (
 		<div className={style.colorBlocks}>
 			{colors.map((color) => (
-				<div
-					className={style.colorBlock}
-					style={{ backgroundColor: `${color}` }}
-				></div>
+				<div className={style.colorBlock}>
+					<input
+						id={color}
+						type="radio"
+						name="color"
+						value={color}
+						onChange={handleChange}
+					/>
+					<label
+						htmlFor={color}
+						style={{ backgroundColor: `${color}` }}
+					></label>
+				</div>
 			))}
 		</div>
 	);
@@ -43,6 +52,7 @@ export const AddAccount = () => {
 		link: "",
 		dateCreate: "",
 		dateChange: "",
+		color: "#2A47E6",
 	};
 
 	const [errors, setErrors] = useState(initData);
@@ -51,6 +61,7 @@ export const AddAccount = () => {
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
+		console.log(name, " ", value);
 		setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
 	};
 
@@ -120,6 +131,7 @@ export const AddAccount = () => {
 					formData={formData}
 					error={errors.link}
 				/>
+				<ColorBlocks handleChange={handleChange} />
 				<button type="submit" className={style.submit}>
 					Добавить
 				</button>

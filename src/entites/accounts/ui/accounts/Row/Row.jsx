@@ -12,10 +12,9 @@ const Item = (props) => {
         <tr className={s.item}>
             <td className={s.select}><Checkbox /></td>
             <td className={s.info}>
-                <div className={s.picture}>
+                <div className={s.picture} style={{backgroundColor: `${props.account.color}`}}>
                     {props.account.name.slice(0, 2)}
                 </div> 
-                {/* <img height="16" width="16" src='http://www.google.com/s2/favicons?domain=vk.com' /> */}
                 <div className={s.credential}>
                     <div className={s.name}>
                         {props.account.name}

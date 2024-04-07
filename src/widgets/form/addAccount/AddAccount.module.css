@@ -1,3 +1,7 @@
+.form {
+  max-width: 450px;
+}
+
 .form label {
 	display:flex;
 	margin-left: 15px;
@@ -5,6 +9,7 @@
 	font-size: 18px;
   padding-top: 10px;
   height: 40px;
+
 }
 
 .form label > span{
@@ -37,4 +42,38 @@
   font-size: 16px;
   margin-top: 20px;
   float: right;
+}
+
+.colorBlocks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.colorBlock input[type=radio] {
+	display: none;
+}
+
+.colorBlock label {
+	display: inline-block;
+	cursor: pointer;
+  margin: 5px;
+	border: 2px solid #7a7a7a;
+	border-radius: 6px;
+	user-select: none;
+  height: 32px;
+  width: 50px;
+}
+ 
+/* Checked */
+.colorBlock input[type=radio]:checked + label {
+  border: 2px solid rgb(230, 230, 230);
+  height: 28px;
+  width: 46px;
+  margin-right: 9px;
+}
+ 
+/* Hover */
+.colorBlock label:hover {
+	border: #666;
 }
