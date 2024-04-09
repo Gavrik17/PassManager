@@ -17,7 +17,7 @@ let Action = () => {
 			<Add  onClick={account.openModal}/>
 			<Del />
 			<Modal showModal={account.showModal} closeModal={account.closeModal}>
-				<AddAccount />
+				<AddAccount closeModal={account.closeModal}/>
 			</Modal>
 		</>
 	);

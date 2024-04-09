@@ -10,9 +10,8 @@ export const useModal = () => {
 	};
 
 	let closeModal = (e) => {
-		if (e.target !== e.currentTarget) return;
-
-		e.preventDefault();
+		if (e && e.target !== e.currentTarget) return;
+		
 		setShowModal(false);
 	};
 

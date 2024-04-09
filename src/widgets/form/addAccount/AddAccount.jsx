@@ -43,7 +43,7 @@ const ColorBlocks = ({ handleChange }) => {
 	);
 };
 
-export const AddAccount = () => {
+export const AddAccount = ({closeModal}) => {
 	let initData = {
 		title: "",
 		description: "",
@@ -72,6 +72,7 @@ export const AddAccount = () => {
 
 		if (Object.keys(newErrors).length === 0) {
 			dispatch(createAccount(formData));
+			closeModal()
 		}
 	};
 
