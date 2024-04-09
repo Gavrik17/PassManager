@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { search } from "feauters/search/model/search";
-import { Box, Filter, Table } from "shared/ui";
+import { Add, Box, Filter, Table } from "shared/ui";
 import { Search } from "feauters/search";
+import { AddGroup } from "widgets/form";
+import { Modal, useModal } from "feauters/modal";
 
 export const Group = () => {
 	// @ts-ignore
@@ -21,6 +23,8 @@ export const Group = () => {
 		items: [...group],
 	};
 
+	let entity = useModal();
+
 	return (
 		<Box
 			title={list.title}
@@ -28,10 +32,14 @@ export const Group = () => {
 				<>
 					<Search searchAction={changeAction} />
 					<Filter />
+					<Add onClick={entity.openModal}/>
 				</>
 			}
 		>
 			<Table list={list} />
+			<Modal showModal={entity.showModal} closeModal={entity.closeModal}>
+				<AddGroup closeModal={entity.closeModal}/>
+			</Modal>
 		</Box>
 	);
 };

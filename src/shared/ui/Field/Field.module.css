@@ -9,3 +9,39 @@
   color: var(--red);
   font-weight: 600;
 }
+
+.field {
+  max-width: 450px;
+}
+
+.field {
+	display:flex;
+	margin-left: 15px;
+  font-family: inherit;
+	font-size: 18px;
+  padding-top: 10px;
+  height: 40px;
+
+}
+
+.field > span{
+	display: inline-block;
+	width: 150px;
+}
+.field input{
+	border: none;
+	border-bottom: 1px solid var(--border-color);
+	width: 275px;
+	outline: none;
+	padding: 0px 0px 0px 0px;
+	font-style: inherit;
+  font-size: 16px;
+  transition: 0.4s;
+  
+}
+
+
+.field input:focus{
+	border-bottom: 1px solid var(--blue);
+  transition: 0.4s;
+}

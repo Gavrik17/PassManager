@@ -12,7 +12,7 @@ export const Field = ({
 	error = "",
 }) => {
 	return (
-		<label htmlFor={name}>
+		<label htmlFor={name} className={style.field}>
 			<span>{title}</span>
 			<div className={style.block}>
 				<input

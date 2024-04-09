@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box } from "shared/ui";
+import { Box, Submit } from "shared/ui";
 import style from "./AddAccount.module.css";
 import { useDispatch } from "react-redux";
 import { createAccount } from "entites/accounts";
@@ -43,7 +43,7 @@ const ColorBlocks = ({ handleChange }) => {
 	);
 };
 
-export const AddAccount = ({closeModal}) => {
+export const AddAccount = ({ closeModal }) => {
 	let initData = {
 		title: "",
 		description: "",
@@ -61,7 +61,6 @@ export const AddAccount = ({closeModal}) => {
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
-		console.log(name, " ", value);
 		setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
 	};
 
@@ -72,7 +71,7 @@ export const AddAccount = ({closeModal}) => {
 
 		if (Object.keys(newErrors).length === 0) {
 			dispatch(createAccount(formData));
-			closeModal()
+			closeModal();
 		}
 	};
 
@@ -133,9 +132,7 @@ export const AddAccount = ({closeModal}) => {
 					error={errors.link}
 				/>
 				<ColorBlocks handleChange={handleChange} />
-				<button type="submit" className={style.submit}>
-					Добавить
-				</button>
+				<Submit title="Добавить"/>
 			</form>
 		</Box>
 	);
