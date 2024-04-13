@@ -40,6 +40,10 @@
   
 }
 
+.warning input{
+  border-bottom: 1px solid var(--red);
+  transition: 0.4s;
+}
 
 .field input:focus{
 	border-bottom: 1px solid var(--blue);

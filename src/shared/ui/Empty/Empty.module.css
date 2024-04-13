@@ -1,0 +1,17 @@
+.empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--main-txt-color);
+}
+
+.picture {
+  width: 150px;
+}

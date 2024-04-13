@@ -20,13 +20,12 @@ export const Box = ({
 			</div>
 
 			<div className={style.body}>{children}</div>
-			{(counts ||
-				pagination) && (
-					<div className={style.footer}>
-						<div className={style.counts}>{counts}</div>
-						<div className={style.pagination}>{pagination}</div>
-					</div>
-				)}
+			{(counts || pagination) && (
+				<div className={style.footer}>
+					<div className={style.counts}>{counts}</div>
+					<div className={style.pagination}>{pagination}</div>
+				</div>
+			)}
 		</div>
 	);
 };

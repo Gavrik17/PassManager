@@ -5,17 +5,22 @@ import { Add, Box, Filter, Table } from "shared/ui";
 import { Search } from "feauters/search";
 import { AddGroup } from "widgets/form";
 import { Modal, useModal } from "feauters/modal";
+import { useEffect } from "react";
 
 export const Group = () => {
 	// @ts-ignore
-	let groups = useSelector((state) => state.group.group);
 
+	let groups = useSelector((state) => state.group.group);
 	let [group, setGroup] = useState(groups);
 
-	let changeAction = (event) => {
+	let handleChange = (event) => {
 		let text = event.target.value;
 		search(groups, text, setGroup);
 	};
+
+	useEffect(() => {
+		setGroup(groups);
+	}, [groups]);
 
 	const list = {
 		title: "Ролевые группы",
@@ -23,22 +28,22 @@ export const Group = () => {
 		items: [...group],
 	};
 
-	let entity = useModal();
+	let modal = useModal();
 
 	return (
 		<Box
 			title={list.title}
 			action={
 				<>
-					<Search searchAction={changeAction} />
+					<Search handleChange={handleChange} />
 					<Filter />
-					<Add onClick={entity.openModal}/>
+					<Add onClick={modal.openModal} />
 				</>
 			}
 		>
 			<Table list={list} />
-			<Modal showModal={entity.showModal} closeModal={entity.closeModal}>
-				<AddGroup closeModal={entity.closeModal}/>
+			<Modal showModal={modal.showModal} closeModal={modal.closeModal}>
+				<AddGroup closeModal={modal.closeModal} />
 			</Modal>
 		</Box>
 	);

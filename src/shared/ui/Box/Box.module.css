@@ -23,13 +23,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+  margin-bottom: 5px;
 }
 
 .action {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: 20px;
 }
 
 .action > div{

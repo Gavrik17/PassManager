@@ -27,6 +27,7 @@ export const AddGroup = ({ closeModal }) => {
 
 		if (Object.keys(newErrors).length === 0) {
 			dispatch(createGroup(formData));
+			setFormData(initData)
 			closeModal();
 		}
 	};

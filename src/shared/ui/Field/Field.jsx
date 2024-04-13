@@ -1,6 +1,6 @@
 import React from "react";
-import style from "./Field.module.css"
-
+import style from "./Field.module.css";
+import cn from "classnames";
 
 export const Field = ({
 	title,
@@ -9,12 +9,12 @@ export const Field = ({
 	type = "text",
 	disabled = false,
 	formData,
-	error = "",
+	error = null,
 }) => {
 	return (
 		<label htmlFor={name} className={style.field}>
 			<span>{title}</span>
-			<div className={style.block}>
+			<div className={cn(style.block, error && style.warning)}>
 				<input
 					value={formData[name]}
 					type={type}

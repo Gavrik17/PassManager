@@ -71,6 +71,7 @@ export const AddAccount = ({ closeModal }) => {
 
 		if (Object.keys(newErrors).length === 0) {
 			dispatch(createAccount(formData));
+			setFormData(initData)
 			closeModal();
 		}
 	};

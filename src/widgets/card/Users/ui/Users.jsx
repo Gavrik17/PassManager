@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { searchFunc, Search } from "feauters/search";
 import { Box, Filter, Table } from "shared/ui";
+import { Empty } from "shared/ui/Empty/Empty";
 
 export const Users = () => {
 	// @ts-ignore
 	let users = useSelector((state) => state.user.users);
 	let [user, setUser] = useState(users);
 
-	let changeAction = (event) => {
+	let handleChange = (event) => {
 		let text = event.target.value;
 		searchFunc(users, text, setUser);
 	};
@@ -24,12 +25,13 @@ export const Users = () => {
 			title={list.title}
 			action={
 				<>
-					<Search searchAction={changeAction} />
+					<Search handleChange={handleChange} />
 					<Filter />
 				</>
 			}
 		>
-			<Table list={list} />
+			{list.items.length ? <Table list={list} />: <Empty />}
+			
 		</Box>
 	);
 };
