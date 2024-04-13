@@ -13,7 +13,7 @@ const Header = ({ header }) => {
 				</th>
 				{header.map((title) =>
 					title !== "id" ? (
-						<th>
+						<th key={title}>
 							<Sort>{title}</Sort>
 						</th>
 					) : null
