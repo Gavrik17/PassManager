@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 import css from "./Checkbox.module.css"
 
 
-export const Checkbox = () => {
+export const Checkbox: FC = () => {
     return (
         <label className={css.checkbox}>
             <input type="checkbox"/>

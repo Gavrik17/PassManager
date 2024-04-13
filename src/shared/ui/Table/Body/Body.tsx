@@ -1,8 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
 import s from "./Body.module.css";
 import { Checkbox } from "shared/ui";
 
-const Body = ({ items }) => {
+interface IBody {
+	items: ReadonlyArray<string>
+}
+
+const Body: FC<IBody> = ({ items }) => {
 	return (
 		<tbody>
 			{items.map((item) => (
@@ -11,7 +15,7 @@ const Body = ({ items }) => {
 						<Checkbox />
 					</td>
 
-					{Object.keys(item).map((value) =>
+					{Object.keys(item).map((value: any) =>
 						value !== "id" ? <td key={value}>{item[value]}</td> : null
 					)}
 				</tr>

@@ -1,13 +1,22 @@
-import React from "react";
+import React, { FC } from "react";
 import style from "./Box.module.css";
 
-export const Box = ({
+interface IBox {
+	action?: React.ReactNode;
+	title?: string;
+	extension?: React.ReactNode;
+	counts?: React.ReactNode;
+	pagination?: React.ReactNode;
+	children: React.ReactNode;
+}
+
+export const Box: FC<IBox> = ({
+	action,
+	title,
+	extension,
+	counts,
+	pagination,
 	children,
-	action = null,
-	title = null,
-	extension = null,
-	counts = null,
-	pagination = null,
 }) => {
 	return (
 		<div className={style.card}>

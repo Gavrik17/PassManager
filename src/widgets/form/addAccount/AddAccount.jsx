@@ -43,6 +43,18 @@ const ColorBlocks = ({ handleChange }) => {
 	);
 };
 
+// interface IAddAccount {
+// 	title: string;
+// 	description: string;
+// 	login: string;
+// 	password: string;
+// 	link: string;
+// 	dateCreate: string;
+// 	dateChange: string;
+// 	color: string;
+// }
+
+
 export const AddAccount = ({ closeModal }) => {
 	let initData = {
 		title: "",

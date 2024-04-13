@@ -1,10 +1,13 @@
-import React from "react";
+import React, { FC } from "react";
 import s from "./Header.module.css";
 import { Checkbox } from "shared/ui";
 import { Sort } from "entites/group";
 
-const Header = ({ header }) => {
-	
+interface IHeader {
+	header: ReadonlyArray<string>;
+}
+
+const Header: FC<IHeader> = ({ header }) => {
 	return (
 		<thead className={s.header}>
 			<tr>

@@ -1,15 +1,25 @@
-import React from "react";
+import React, { FC } from "react";
 import style from "./Field.module.css";
 import cn from "classnames";
 
-export const Field = ({
+interface IField {
+	title: string;
+	name: string;
+	handleChange: React.ChangeEventHandler;
+	type: React.HTMLInputTypeAttribute;
+	disabled: boolean;
+	formData: any;
+	error?: any;
+}
+
+export const Field: FC<IField> = ({
 	title,
 	name,
 	handleChange,
 	type = "text",
 	disabled = false,
 	formData,
-	error = null,
+	error,
 }) => {
 	return (
 		<label htmlFor={name} className={style.field}>
