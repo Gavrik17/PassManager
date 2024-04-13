@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { searchFunc, Search } from "feauters/search";
-import { Box, Filter, Table } from "shared/ui";
-import { Empty } from "shared/ui/Empty/Empty";
+import { Box, Filter, Table, Add, Empty } from "shared/ui";
 
-export const Users = () => {
+export const Users = ({ search = null, filter = null, add = null }) => {
 	// @ts-ignore
 	let users = useSelector((state) => state.user.users);
 	let [user, setUser] = useState(users);
@@ -25,8 +24,9 @@ export const Users = () => {
 			title={list.title}
 			action={
 				<>
-					<Search handleChange={handleChange} />
-					<Filter />
+					{search && <Search handleChange={handleChange} />}
+					{filter && <Filter />}
+					{add && <Add onClick={undefined} />}
 				</>
 			}
 		>

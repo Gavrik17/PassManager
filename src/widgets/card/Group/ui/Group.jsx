@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { search } from "feauters/search/model/search";
 import { Add, Box, Filter, Table } from "shared/ui";
 import { Search } from "feauters/search";
 import { AddGroup } from "widgets/form";
 import { Modal, useModal } from "feauters/modal";
 import { useEffect } from "react";
 
-export const Group = () => {
+export const Group = ({ search = null, filter = null, add = null }) => {
 	// @ts-ignore
 
 	let groups = useSelector((state) => state.group.group);
@@ -35,16 +34,18 @@ export const Group = () => {
 			title={list.title}
 			action={
 				<>
-					<Search handleChange={handleChange} />
-					<Filter />
-					<Add onClick={modal.openModal} />
+					{search && <Search handleChange={handleChange} />}
+					{filter && <Filter />}
+					{add && <Add onClick={modal.openModal} />}
 				</>
 			}
 		>
 			<Table list={list} />
-			<Modal showModal={modal.showModal} closeModal={modal.closeModal}>
-				<AddGroup closeModal={modal.closeModal} />
-			</Modal>
+			{add ? (
+				<Modal showModal={modal.showModal} closeModal={modal.closeModal}>
+					<AddGroup closeModal={modal.closeModal} />
+				</Modal>
+			) : null}
 		</Box>
 	);
 };

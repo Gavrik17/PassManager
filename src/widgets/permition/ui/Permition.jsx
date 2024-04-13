@@ -23,13 +23,13 @@ export const Permition = () => {
 				showModal={user.showModal}
 				closeModal={user.closeModal}
 			>
-				<Users />
+				<Users search filter/>
 			</Modal>
 			<Modal
 				showModal={group.showModal}
 				closeModal={group.closeModal}
 			>
-				<Group />
+				<Group search filter/>
 			</Modal>
 		</div>
 	);

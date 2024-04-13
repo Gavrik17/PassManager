@@ -1,8 +1,8 @@
 import { Search } from "feauters/search";
 import React from "react";
-import { Box, Filter, Table } from "shared/ui";
+import { Box, Filter, Table, Add } from "shared/ui";
 
-export const Storage = () => {
+export const Storage = ({ search = null, filter = null, add = null }) => {
 	const list = {
 		id: 3,
 		title: "Хранилища",
@@ -28,8 +28,9 @@ export const Storage = () => {
 			title={list.title}
 			action={
 				<>
-					<Search />
-					<Filter />
+					{search && <Search />}
+					{filter && <Filter />}
+					{add && <Add onClick={undefined} />}
 				</>
 			}
 		>

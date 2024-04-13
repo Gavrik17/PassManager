@@ -8,9 +8,9 @@ const Profile = () => {
 		<>
 			<div className={s.profile}>
 				<PassSecurity />
-				<Users />
-				<Group />
-				<Storage />
+				<Users search filter/>
+				<Group search filter add/>
+				<Storage search filter add/>
 			</div>
 		</>
 	);

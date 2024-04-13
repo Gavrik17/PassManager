@@ -9,3 +9,4 @@ export { Del } from "./Buttons/del/Del";
 export { Save } from "./Buttons/save/Save";
 export { Field } from "./Field/Field";
 export { Submit } from "./Buttons/submit/Submit";
+export { Empty } from "./Empty/Empty"
