@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 
+interface IContextMenu {
+	show: boolean;
+	x: number;
+	y: number;
+}
+
 export const useContextMenu = () => {
-	const initialContextMenu = {
+	const initialContextMenu: IContextMenu = {
 		show: false,
 		x: 0,
 		y: 0,
@@ -9,7 +15,11 @@ export const useContextMenu = () => {
 
 	const [ContextMenu, setContextMenu] = useState(initialContextMenu);
 
-	let handleContextMenu = (e) => {
+	let handleContextMenu = (e: {
+		preventDefault: () => void;
+		pageX: number;
+		pageY: number;
+	}) => {
 		e.preventDefault();
 		setContextMenu({ show: true, x: e.pageX, y: e.pageY });
 	};

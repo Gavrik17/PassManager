@@ -1,12 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
 import permitions from "shared/assets/icons/permitions.png";
 import style from "./Permition.module.css";
 import { Modal, useModal } from "feauters/modal";
 import { Group, Users } from "widgets/card";
 
-export const Permition = () => {
-		let user = useModal()
-		let group = useModal()
+export const Permition: FC = () => {
+	let user = useModal();
+	let group = useModal();
 
 	return (
 		<div className={style.permitions}>
@@ -18,18 +18,12 @@ export const Permition = () => {
 					<span onClick={group.openModal}>4 группы</span>
 				</div>
 			</div>
-			
-			<Modal
-				showModal={user.showModal}
-				closeModal={user.closeModal}
-			>
-				<Users search filter/>
+
+			<Modal showModal={user.showModal} closeModal={user.closeModal}>
+				<Users search filter />
 			</Modal>
-			<Modal
-				showModal={group.showModal}
-				closeModal={group.closeModal}
-			>
-				<Group search filter/>
+			<Modal showModal={group.showModal} closeModal={group.closeModal}>
+				<Group search filter />
 			</Modal>
 		</div>
 	);

@@ -1,7 +1,13 @@
-import React from "react";
+import React, { FC } from "react";
 import style from "./ContextMenu.module.css";
 
-export const ContextMenuUI = ({ x, y, closeContextMenu }) => {
+interface IContexMenuUI {
+	x: number,
+	y: number,
+	closeContextMenu: () => void
+}
+
+export const ContextMenuUI: FC<IContexMenuUI> = ({ x, y, closeContextMenu }) => {
 	return (
 		<div
 			onClick={closeContextMenu}

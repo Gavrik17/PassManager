@@ -5,8 +5,17 @@ import { useDispatch } from "react-redux";
 import { createGroup } from "entites/group";
 import { Field } from "shared/ui";
 
-export const AddGroup = ({ closeModal }) => {
-	let initData = {
+interface IAddGroup {
+	closeModal: any;
+}
+
+interface IinitData {
+	title?: string;
+	description?: string;
+}
+
+export const AddGroup = ({ closeModal }: IAddGroup) => {
+	let initData: IinitData = {
 		title: "",
 		description: "",
 	};
@@ -15,25 +24,25 @@ export const AddGroup = ({ closeModal }) => {
 	const [formData, setFormData] = useState(initData);
 	const dispatch = useDispatch();
 
-	const handleChange = (event) => {
+	const handleChange = (event: { target: { name: string; value: string } }) => {
 		const { name, value } = event.target;
 		setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
 	};
 
-	const handleSubmit = (event) => {
+	const handleSubmit = (event: { preventDefault: () => void }) => {
 		event.preventDefault();
-		const newErrors = validateForm(formData);
+		let newErrors: IinitData = validateForm(formData);
 		setErrors(newErrors);
 
 		if (Object.keys(newErrors).length === 0) {
 			dispatch(createGroup(formData));
-			setFormData(initData)
+			setFormData(initData);
 			closeModal();
 		}
 	};
 
-	const validateForm = (data) => {
-		let errors = {};
+	const validateForm = (data: IinitData) => {
+		let errors: IinitData = {};
 		if (!data.title.trim()) {
 			errors.title = "Введите название";
 		}

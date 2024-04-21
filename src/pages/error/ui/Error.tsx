@@ -1,6 +1,6 @@
-import React from "react";
+import React, { FC } from "react";
 
-export const Error = () => {
+export const Error: FC = () => {
   return (
     <svg viewBox="0 0 10 2">
       <text

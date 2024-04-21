@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import s from "./Profile.module.css";
 import { PassSecurity } from "widgets/passSecurity";
 import { Users, Storage, Group } from "widgets/card";
 
-const Profile = () => {
+const Profile: FC = () => {
 	return (
 		<>
 			<div className={s.profile}>

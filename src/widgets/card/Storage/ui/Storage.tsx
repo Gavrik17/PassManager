@@ -1,9 +1,17 @@
 import { Search } from "feauters/search";
-import React from "react";
+import React, { FC } from "react";
 import { Box, Filter, Table, Add } from "shared/ui";
+import { ICard } from "shared/types/types";
 
-export const Storage = ({ search = null, filter = null, add = null }) => {
-	const list = {
+interface Ilist {
+	id: number;
+	title: string;
+	header: ReadonlyArray<string>;
+	items: any;
+}
+
+export const Storage: FC<ICard> = ({ search, filter, add }) => {
+	const list: Ilist = {
 		id: 3,
 		title: "Хранилища",
 		header: ["id", "Хранилище", "Пароли", "Участники"],
@@ -30,7 +38,7 @@ export const Storage = ({ search = null, filter = null, add = null }) => {
 				<>
 					{search && <Search />}
 					{filter && <Filter />}
-					{add && <Add onClick={undefined} />}
+					{add && <Add />}
 				</>
 			}
 		>

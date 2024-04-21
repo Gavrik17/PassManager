@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import s from "./Main.module.css";
 import { Box, Select, Add, Del } from "shared/ui";
 import { Accounts } from "entites/accounts";
@@ -8,12 +8,14 @@ import { Search } from "feauters/search";
 import { Modal, useModal } from "feauters/modal";
 import { AddAccount } from "widgets/form";
 
-let Action = () => {
+let Action: FC = () => {
 	let account = useModal();
 
 	return (
 		<>
-			<Search />
+			<Search handleChange={function (): void {
+				throw new Error("Function not implemented.");
+			} } />
 			<Add  onClick={account.openModal}/>
 			<Del />
 			<Modal showModal={account.showModal} closeModal={account.closeModal}>
@@ -23,7 +25,7 @@ let Action = () => {
 	);
 };
 
-const Main = () => {
+const Main: FC = () => {
 
 
 	return (

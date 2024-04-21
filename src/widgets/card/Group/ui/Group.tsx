@@ -1,20 +1,21 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import { Add, Box, Filter, Table } from "shared/ui";
-import { Search } from "feauters/search";
+import { Search, searchFunc } from "feauters/search";
 import { AddGroup } from "widgets/form";
 import { Modal, useModal } from "feauters/modal";
 import { useEffect } from "react";
+import { ICard } from "shared/types/types";
 
-export const Group = ({ search = null, filter = null, add = null }) => {
+export const Group: FC<ICard> = ({ search, filter, add }) => {
 	// @ts-ignore
 
 	let groups = useSelector((state) => state.group.group);
 	let [group, setGroup] = useState(groups);
 
-	let handleChange = (event) => {
+	let handleChange = (event?: { target: { value: any; }; }) => {
 		let text = event.target.value;
-		search(groups, text, setGroup);
+		searchFunc(groups, text, setGroup);
 	};
 
 	useEffect(() => {

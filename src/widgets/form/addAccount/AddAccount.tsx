@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { Box, Submit } from "shared/ui";
 import style from "./AddAccount.module.css";
 import { useDispatch } from "react-redux";
 import { createAccount } from "entites/accounts";
 import { Field } from "shared/ui";
 
-const ColorBlocks = ({ handleChange }) => {
+interface IColorBlocks {
+	handleChange: any
+}
+
+const ColorBlocks: FC<IColorBlocks>  = ({ handleChange }) => {
 	let colors = [
 		"#FFFF00",
 		"#FF9900",
@@ -43,20 +47,23 @@ const ColorBlocks = ({ handleChange }) => {
 	);
 };
 
-// interface IAddAccount {
-// 	title: string;
-// 	description: string;
-// 	login: string;
-// 	password: string;
-// 	link: string;
-// 	dateCreate: string;
-// 	dateChange: string;
-// 	color: string;
-// }
+interface IinitData {
+	title?: string;
+	description?: string;
+	login?: string;
+	password?: string;
+	link?: string;
+	dateCreate?: string;
+	dateChange?: string;
+	color?: string;
+}
 
+interface IAddAccount {
+	closeModal: any
+}
 
-export const AddAccount = ({ closeModal }) => {
-	let initData = {
+export const AddAccount: FC<IAddAccount> = ({ closeModal }) => {
+	let initData: IinitData = {
 		title: "",
 		description: "",
 		login: "",
@@ -71,14 +78,14 @@ export const AddAccount = ({ closeModal }) => {
 	const [formData, setFormData] = useState(initData);
 	const dispatch = useDispatch();
 
-	const handleChange = (event) => {
+	const handleChange = (event: { target: { name: string; value: string; }}) => {
 		const { name, value } = event.target;
 		setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
 	};
 
-	const handleSubmit = (event) => {
+	const handleSubmit = (event: { preventDefault: () => void; }) => {
 		event.preventDefault();
-		const newErrors = validateForm(formData);
+		let newErrors: IinitData = validateForm(formData);
 		setErrors(newErrors);
 
 		if (Object.keys(newErrors).length === 0) {
@@ -88,8 +95,8 @@ export const AddAccount = ({ closeModal }) => {
 		}
 	};
 
-	const validateForm = (data) => {
-		let errors = {};
+	const validateForm = (data: IinitData) => {
+		let errors: IinitData = {};
 		if (!data.title.trim()) {
 			errors.title = "Введите название";
 		}

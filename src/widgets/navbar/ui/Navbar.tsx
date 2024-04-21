@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FC } from "react";
 import style from "./Navbar.module.css";
 import logout from "shared/assets/icons/logout.svg";
 import { NavLink } from "react-router-dom";
@@ -7,21 +7,23 @@ import { Storage } from "entites/storage";
 import { useSelector } from "react-redux";
 import { ContextMenuUI } from "feauters/contextMenu";
 import { useContextMenu } from "feauters/contextMenu";
+
+
 const Storages = () => {
 	// @ts-ignore
 	const storages = useSelector((state) => state.storage.storage);
 
-	return storages.map((storage) => {
+	return storages.map((storage: any) => {
 		return <Storage storage={storage} />;
 	});
 };
 
-const Navbar = () => {
+const Navbar: FC = () => {
 	const { ContextMenu, handleContextMenu, closeContextMenu } = useContextMenu();
 
 	return (
 		<aside className={style.navbar} onContextMenu={handleContextMenu}>
-			<div >
+			<div>
 				<ProfileHeader />
 				<div className={style.navigation}>
 					<nav>

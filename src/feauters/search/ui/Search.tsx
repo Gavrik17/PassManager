@@ -1,8 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
 import css from "./Search.module.css";
 import search from "shared/assets/icons/search.svg";
 
-export const Search = ({ handleChange = null }) => {
+interface ISearch {
+	handleChange?: () => void
+}
+
+export const Search: FC<ISearch> = ({ handleChange }) => {
 	return (
 		<div className={css.search}>
 			<img src={search} alt="" />
