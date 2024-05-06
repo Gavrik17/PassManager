@@ -1,4 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IGroupData } from "shared/types/types";
+
+interface ISearch  {
+	text?: any;
+};
 
 const groupSlice = createSlice({
 	name: "group",
@@ -11,21 +16,19 @@ const groupSlice = createSlice({
 		],
 	},
 	reducers: {
-		sort(state, action) {
+		sort(state) {
 			state.group = state.group.sort((x, y) => x.name.localeCompare(y.name));
 		},
-		search(state, action) {
+		search(state, { payload }: PayloadAction<ISearch>) {
 			state.group = state.group.filter((val) =>
-				val.name
-					.toLocaleLowerCase()
-					.includes(action.payload.text.toLocaleLowerCase())
+				val.name.toLocaleLowerCase().includes(payload.text.toLocaleLowerCase())
 			);
 		},
-		createGroup(state, action) {
+		createGroup(state, { payload }: PayloadAction<IGroupData>) {
 			state.group.push({
 				id: 10,
-				name: action.payload.title,
-				description: action.payload.description,
+				name: payload.title!,
+				description: payload.description!,
 			});
 		},
 	},

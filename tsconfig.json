@@ -2,10 +2,10 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "noImplicitAny": true,
-    "module": "commonjs",
     "sourceMap": true,
     "jsx": "react",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "strict": true,
   },
   "include": [
     "src",

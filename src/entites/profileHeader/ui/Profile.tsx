@@ -1,11 +1,12 @@
-import React from "react";
+import React, { FC } from "react";
 import { NavLink } from "react-router-dom";
 import style from "./Profile.module.css";
 import avatar from "shared/assets/icons/avatar.png";
 import { Avatar } from "shared/ui";
 import { useSelector } from "react-redux";
 
-const Profile = () => {
+
+const Profile: FC = () => {
     // @ts-ignore
     let user = useSelector(state => state.user.user)
 

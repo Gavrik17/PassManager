@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IAccountData } from "shared/types/types";
 
 const accountSlice = createSlice({
 	name: "accounts",
@@ -11,7 +12,7 @@ const accountSlice = createSlice({
 				login: "Fufuk",
 				password: "sdfsdfsdfsdf",
 				lastused: "1 час назад",
-				color: "#2A47E6"
+				color: "#2A47E6",
 			},
 			{
 				id: 2,
@@ -20,7 +21,7 @@ const accountSlice = createSlice({
 				login: "poiesd",
 				password: "456456",
 				lastused: "11 часов назад",
-				color: "#2A47E6"
+				color: "#2A47E6",
 			},
 			{
 				id: 3,
@@ -29,7 +30,7 @@ const accountSlice = createSlice({
 				login: "cvbfuk",
 				password: "9vbdfy34",
 				lastused: "Только что",
-				color: "#2A47E6"
+				color: "#2A47E6",
 			},
 			{
 				id: 4,
@@ -38,7 +39,7 @@ const accountSlice = createSlice({
 				login: "Fufuk",
 				password: "sdfsdfsdfsdf",
 				lastused: "1 час назад",
-				color: "#2A47E6"
+				color: "#2A47E6",
 			},
 			{
 				id: 5,
@@ -47,7 +48,7 @@ const accountSlice = createSlice({
 				login: "poiesd",
 				password: "456456",
 				lastused: "11 часов назад",
-				color: "#2A47E6"
+				color: "#2A47E6",
 			},
 			{
 				id: 6,
@@ -56,7 +57,7 @@ const accountSlice = createSlice({
 				login: "cvbfuk",
 				password: "9vbdfy34",
 				lastused: "Только что",
-				color: "#2A47E6"
+				color: "#2A47E6",
 			},
 			{
 				id: 7,
@@ -65,7 +66,7 @@ const accountSlice = createSlice({
 				login: "Fufuk",
 				password: "sdfsdfsdfsdf",
 				lastused: "1 час назад",
-				color: "#2A47E6"
+				color: "#2A47E6",
 			},
 			{
 				id: 8,
@@ -74,7 +75,7 @@ const accountSlice = createSlice({
 				login: "poiesd",
 				password: "456456",
 				lastused: "11 часов назад",
-				color: "#2A47E6"
+				color: "#2A47E6",
 			},
 			{
 				id: 9,
@@ -83,7 +84,7 @@ const accountSlice = createSlice({
 				login: "cvbfuk",
 				password: "9vbdfy34",
 				lastused: "Только что",
-				color: "#2A47E6"
+				color: "#2A47E6",
 			},
 			{
 				id: 10,
@@ -92,7 +93,7 @@ const accountSlice = createSlice({
 				login: "Fufuk",
 				password: "sdfsdfsdfsdf",
 				lastused: "1 час назад",
-				color: "#2A47E6"
+				color: "#2A47E6",
 			},
 			{
 				id: 11,
@@ -101,23 +102,22 @@ const accountSlice = createSlice({
 				login: "poiesd",
 				password: "456456",
 				lastused: "11 часов назад",
-				color: "#345"
+				color: "#345",
 			},
-			
 		],
 	},
 	reducers: {
-		createAccount(state, action) {
-			let date = Date()
+		createAccount(state, { payload }: PayloadAction<IAccountData>) {
+			let date = Date();
 			state.accounts.push({
 				id: 1000,
-				name: action.payload.title,
-				description: action.payload.description,
-				login: action.payload.login,
-				password: action.payload.password,
+				name: payload.title,
+				description: payload.description,
+				login: payload.login,
+				password: payload.password,
 				lastused: date,
-				color: action.payload.color
-			})
+				color: payload.color,
+			});
 		},
 	},
 });

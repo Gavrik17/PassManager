@@ -4,23 +4,21 @@ import style from "./AddGroup.module.css";
 import { useDispatch } from "react-redux";
 import { createGroup } from "entites/group";
 import { Field } from "shared/ui";
+import { IGroupData } from "shared/types/types";
 
 interface IAddGroup {
 	closeModal: any;
 }
 
-interface IinitData {
-	title?: string;
-	description?: string;
-}
-
 export const AddGroup = ({ closeModal }: IAddGroup) => {
-	let initData: IinitData = {
+	let initData: IGroupData = {
 		title: "",
 		description: "",
 	};
 
-	const [errors, setErrors] = useState(initData);
+	let initErrors: Partial<IGroupData> = {};
+
+	const [errors, setErrors] = useState(initErrors);
 	const [formData, setFormData] = useState(initData);
 	const dispatch = useDispatch();
 
@@ -31,7 +29,7 @@ export const AddGroup = ({ closeModal }: IAddGroup) => {
 
 	const handleSubmit = (event: { preventDefault: () => void }) => {
 		event.preventDefault();
-		let newErrors: IinitData = validateForm(formData);
+		let newErrors: Partial<IGroupData> = validateForm(formData);
 		setErrors(newErrors);
 
 		if (Object.keys(newErrors).length === 0) {
@@ -41,8 +39,8 @@ export const AddGroup = ({ closeModal }: IAddGroup) => {
 		}
 	};
 
-	const validateForm = (data: IinitData) => {
-		let errors: IinitData = {};
+	const validateForm = (data: IGroupData) => {
+		let errors: Partial<IGroupData> = {};
 		if (!data.title.trim()) {
 			errors.title = "Введите название";
 		}

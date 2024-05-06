@@ -18,7 +18,7 @@
 	width: auto;
 	background-color: var(--card-bg-color);
 	border-radius: 10px;
-  transform: scaleY(0);
+  transform: scale(0);
 	opacity: 0;
   transition: 0.5s;
 }
@@ -28,7 +28,7 @@
 	opacity: 1;
 	pointer-events: all;
 	transition: 0.5s;
-  transform: scaleY(1);
+  transform: scale(1);
 }
 
 .modal.active {

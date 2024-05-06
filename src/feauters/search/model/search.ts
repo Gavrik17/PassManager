@@ -1,7 +1,7 @@
 export const search = (
-	list: ReadonlyArray<string>,
+	list: any,
 	searchStr: string,
-	callback: (list: ReadonlyArray<string>) => void
+	callback: (list: any) => void
 ) => {
 	callback(
 		list.filter((val: any) =>

@@ -1,26 +1,31 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { NavLink } from "react-router-dom";
 import style from "./Menu.module.css";
 import downarrow from "shared/assets/icons/downarrow.svg";
 
-const Menu = (props) => {
+interface IMenu {
+	menu: any
+}
+
+const Menu: FC<IMenu> = ({ menu }) => {
+	
 	const [isOpen, setIsOpen] = useState([
-		...Array(props.menu.length)
+		...Array(menu.length)
 			.fill(0)
 			.map((x) => false),
 	]);
 
-	const open = (index) => {
+	const open = (index: number) => {
 		let isOpenChanger = [...isOpen];
 		isOpenChanger[index] = !isOpen[index];
 		setIsOpen(isOpenChanger);
 	};
 
-	const isFolder = (el) => {
+	const isFolder = (el: any) => {
 		return el.hasOwnProperty("fields");
 	};
 
-	return props.menu.map((el, index) => {
+	return menu.map((el: any, index: number) => {
 		return (
 			<div
 				key={el.id}

@@ -24,7 +24,7 @@ export const useModal = () => {
 interface IModal {
 	children: React.ReactNode;
 	showModal: boolean;
-	closeModal: (e: { target: any; currentTarget: HTMLDivElement }) => void;
+	closeModal: (e: { target: any; currentTarget: any }) => void;
 }
 
 export const Modal: FC<IModal> = ({ children, showModal, closeModal }) => {

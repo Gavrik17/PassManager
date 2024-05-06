@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { appRouter } from "./appRouter";
 import { RouterProvider } from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 
 export let run = () => {
   root.render(

@@ -1,8 +1,8 @@
 import React, { FC, useState } from "react";
-import { useSelector } from "react-redux";
 import { searchFunc, Search } from "feauters/search";
 import { Box, Filter, Table, Add, Empty } from "shared/ui";
 import { ICard } from "shared/types/types";
+import { useAppSelector } from "app/appStore";
 
 interface Ilist {
 	title: string;
@@ -11,13 +11,14 @@ interface Ilist {
 }
 
 export const Users: FC<ICard> = ({ search, filter, add }) => {
-	// @ts-ignore
-	let users = useSelector((state) => state.user.users);
+	let users = useAppSelector((state) => state.user.users);
 	let [user, setUser] = useState(users);
 
 	let handleChange = (event?: { target: { value: string } }) => {
-		let text = event.target.value;
-		searchFunc(users, text, setUser);
+		if (event) {
+			let text = event.target.value;
+			searchFunc(users, text, setUser);
+		}
 	};
 
 	const list: Ilist = {

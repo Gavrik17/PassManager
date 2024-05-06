@@ -6,7 +6,7 @@ import copy from "shared/assets/icons/copy.png";
 import goto from "shared/assets/icons/goto.png";
 import { Checkbox } from "shared/ui";
 
-const Item = (props) => {
+const Item = (props: any) => {
 
     return (
         <tr className={s.item}>

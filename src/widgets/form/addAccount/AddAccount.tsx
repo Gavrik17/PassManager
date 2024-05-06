@@ -4,12 +4,13 @@ import style from "./AddAccount.module.css";
 import { useDispatch } from "react-redux";
 import { createAccount } from "entites/accounts";
 import { Field } from "shared/ui";
+import { IAccountData } from "shared/types/types";
 
 interface IColorBlocks {
-	handleChange: any
+	handleChange: any;
 }
 
-const ColorBlocks: FC<IColorBlocks>  = ({ handleChange }) => {
+const ColorBlocks: FC<IColorBlocks> = ({ handleChange }) => {
 	let colors = [
 		"#FFFF00",
 		"#FF9900",
@@ -47,23 +48,29 @@ const ColorBlocks: FC<IColorBlocks>  = ({ handleChange }) => {
 	);
 };
 
-interface IinitData {
-	title?: string;
-	description?: string;
-	login?: string;
-	password?: string;
-	link?: string;
-	dateCreate?: string;
-	dateChange?: string;
-	color?: string;
+interface IAddAccount {
+	closeModal: any;
 }
 
-interface IAddAccount {
-	closeModal: any
-}
+const validateForm = (data: IAccountData) => {
+	let errors: Partial<IAccountData> = {};
+	if (!data.title.trim()) {
+		errors.title = "Введите название";
+	}
+
+	if (!data.login.trim()) {
+		errors.login = "Поле Логин не может быть пустым";
+	}
+
+	if (!data.password.trim()) {
+		errors.password = "Поле Пароль не может быть пустым";
+	}
+
+	return errors;
+};
 
 export const AddAccount: FC<IAddAccount> = ({ closeModal }) => {
-	let initData: IinitData = {
+	let initData: IAccountData = {
 		title: "",
 		description: "",
 		login: "",
@@ -74,42 +81,27 @@ export const AddAccount: FC<IAddAccount> = ({ closeModal }) => {
 		color: "#2A47E6",
 	};
 
-	const [errors, setErrors] = useState(initData);
+	let initErrors: Partial<IAccountData> = {};
+
+	const [errors, setErrors] = useState(initErrors);
 	const [formData, setFormData] = useState(initData);
 	const dispatch = useDispatch();
 
-	const handleChange = (event: { target: { name: string; value: string; }}) => {
+	const handleChange = (event: { target: { name: string; value: string } }) => {
 		const { name, value } = event.target;
 		setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
 	};
 
-	const handleSubmit = (event: { preventDefault: () => void; }) => {
+	const handleSubmit = (event: { preventDefault: () => void }) => {
 		event.preventDefault();
-		let newErrors: IinitData = validateForm(formData);
+		let newErrors: Partial<IAccountData> = validateForm(formData);
 		setErrors(newErrors);
 
 		if (Object.keys(newErrors).length === 0) {
 			dispatch(createAccount(formData));
-			setFormData(initData)
+			setFormData(initData);
 			closeModal();
 		}
-	};
-
-	const validateForm = (data: IinitData) => {
-		let errors: IinitData = {};
-		if (!data.title.trim()) {
-			errors.title = "Введите название";
-		}
-
-		if (!data.login.trim()) {
-			errors.login = "Поле Логин не может быть пустым";
-		}
-
-		if (!data.password.trim()) {
-			errors.password = "Поле Пароль не может быть пустым";
-		}
-
-		return errors;
 	};
 
 	return (
@@ -152,7 +144,7 @@ export const AddAccount: FC<IAddAccount> = ({ closeModal }) => {
 					error={errors.link}
 				/>
 				<ColorBlocks handleChange={handleChange} />
-				<Submit title="Добавить"/>
+				<Submit title="Добавить" />
 			</form>
 		</Box>
 	);

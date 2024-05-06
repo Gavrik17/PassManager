@@ -8,7 +8,7 @@ import { Search } from "feauters/search";
 import { Modal, useModal } from "feauters/modal";
 import { AddAccount } from "widgets/form";
 
-let Action: FC = () => {
+const Action: FC = () => {
 	let account = useModal();
 
 	return (
