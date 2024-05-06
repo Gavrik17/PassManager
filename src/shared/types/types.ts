@@ -1,7 +1,7 @@
 export interface ICard {
-	search?: any;
-	filter?: any;
-	add?: any;
+	search?: boolean;
+	filter?: boolean;
+	add?: boolean;
 }
 
 export interface ISearch {
