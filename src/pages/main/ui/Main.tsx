@@ -13,21 +13,21 @@ const Action: FC = () => {
 
 	return (
 		<>
-			<Search handleChange={function (): void {
-				throw new Error("Function not implemented.");
-			} } />
-			<Add  onClick={account.openModal}/>
+			<Search
+				handleChange={function (): void {
+					throw new Error("Function not implemented.");
+				}}
+			/>
+			<Add onClick={account.openModal} />
 			<Del />
 			<Modal showModal={account.showModal} closeModal={account.closeModal}>
-				<AddAccount closeModal={account.closeModal}/>
+				<AddAccount closeModal={account.closeModal} />
 			</Modal>
 		</>
 	);
 };
 
 const Main: FC = () => {
-
-
 	return (
 		<div className={s.accounts}>
 			<Box
@@ -39,7 +39,6 @@ const Main: FC = () => {
 			>
 				<Accounts />
 			</Box>
-			
 		</div>
 	);
 };

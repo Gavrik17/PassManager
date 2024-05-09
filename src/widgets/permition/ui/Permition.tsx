@@ -18,10 +18,10 @@ export const Permition: FC = () => {
 					<span onClick={group.openModal}>4 группы</span>
 				</div>
 			</div>
-
 			<Modal showModal={user.showModal} closeModal={user.closeModal}>
 				<Users search filter />
 			</Modal>
+
 			<Modal showModal={group.showModal} closeModal={group.closeModal}>
 				<Group search filter />
 			</Modal>
