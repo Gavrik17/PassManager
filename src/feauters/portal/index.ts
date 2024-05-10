@@ -1,1 +1,1 @@
-export { Portal } from "./ui/portal"
+export { Portal } from "./ui/Portal"

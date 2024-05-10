@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { createPortal } from "react-dom";
 
-function isExist() {
+function isExistPortal() {
 	return document.getElementById("portal") ? true : false;
 }
 
@@ -23,11 +23,11 @@ interface IPortal {
 
 export const Portal: FC<IPortal> = ({ children, active }) => {
 	if (active) {
-		!isExist() && createContainer();
+		!isExistPortal() && createContainer();
 		let container: Element | null = document.getElementById("portal");
 		return createPortal(children, container!);
 	}
-
+	
 	deleteContainer();
 	return null;
 };
